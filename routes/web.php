@@ -1,7 +1,9 @@
 <?php
 
+use App\Models\Song;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('home');
+    $songs = Song::all();
+    return view('home', compact('songs'));
 });

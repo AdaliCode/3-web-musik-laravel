@@ -4,7 +4,7 @@
   <div class="text-success" id="playlist">
     <h6>Playlist</h6>
     <h1 class="text-capitalize">Liked Songs</h1>
-    <p>Muhammad Ariiq Fiezayyan - 110 songs</p>
+    <p>Muhammad Ariiq Fiezayyan - {{ count($songs) }} songs</p>
   </div>
   <hr>
   <table class="table table-borderless" id="songs">
@@ -21,10 +21,10 @@
       @for ($i = 0; $i < 20; $i++)
         <tr>
           <th scope="row">{{ $i+1 }}</th>
-          <td>Gift - HA SUNG WOON</td>
-          <td>Lovely Runner, Pt. 9 (Original Soundtrack)</td>
+          <td><?= (empty($songs[$i])) ? 'Gift - HA SUNG WOON' : $songs[$i]->title . ' - ' . $songs[$i]->singer ; ?></td>
+          <td><?= (empty($songs[$i])) ? 'Lovely Runner, Pt. 9 (Original Soundtrack)' : $songs[$i]->album ; ?></td>
           <td>1 week ago</td>
-          <td>4:49</td>
+          <td><?= (empty($songs[$i])) ? '4:49' : $songs[$i]->duration ; ?></td>
         </tr>
       @endfor
     </tbody>
