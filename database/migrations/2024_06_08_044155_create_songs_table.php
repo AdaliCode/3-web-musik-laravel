@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('singer', 100);
             $table->string('album', 100);
             $table->date('release');
-            $table->time('duration');
+            $table->integer('minutes_duration');
+            $table->integer('second_duration');
             $table->text('description')->nullable();
             $table->timestamps();
         });

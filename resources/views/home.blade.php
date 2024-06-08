@@ -14,7 +14,7 @@
         <th scope="col" class="text-success">title</th>
         <th scope="col" class="text-success">album</th>
         <th scope="col" class="text-success">data added</th>
-        <th scope="col" class="text-success">duration</th>
+        <th scope="col" class="text-success"><i class="bi bi-clock"></i></th>
       </tr>
     </thead>
     <tbody>
@@ -24,7 +24,7 @@
           <td><?= (empty($songs[$i])) ? 'Gift - HA SUNG WOON' : $songs[$i]->title . ' - ' . $songs[$i]->singer ; ?></td>
           <td><?= (empty($songs[$i])) ? 'Lovely Runner, Pt. 9 (Original Soundtrack)' : $songs[$i]->album ; ?></td>
           <td>1 week ago</td>
-          <td><?= (empty($songs[$i])) ? '4:49' : $songs[$i]->duration ; ?></td>
+          <td><?= (empty($songs[$i])) ? '4:49' : $songs[$i]->minutes_duration . ':' . sprintf('%02d', $songs[$i]->second_duration); ?></td>
         </tr>
       @endfor
     </tbody>
