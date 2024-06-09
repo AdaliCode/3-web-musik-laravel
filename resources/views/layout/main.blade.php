@@ -16,8 +16,8 @@
         nav a {
             font-weight: 900;
         }
-        h1, #navbarNavAltMarkup a{
-            font-weight: 700;
+        .lato-700 { 
+          font-weight: 700;
         }
     </style>
   </head>

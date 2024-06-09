@@ -1,10 +1,10 @@
 @extends('layout.main')
 @section('title', 'MP326')
 @section('container')
-  <div class="text-success" id="playlist">
+  <div class="text-success">
     <h6>Playlist</h6>
-    <h1 class="text-capitalize">Liked Songs</h1>
-    <p>Muhammad Ariiq Fiezayyan - {{ count($songs) }} songs</p>
+    <h1 class="text-capitalize lato-700">Liked Songs</h1>
+    <p>Muhammad Ariiq Fiezayyan - <?= count($songs) ; ?> songs</p>
   </div>
   <hr>
   <table class="table table-borderless" id="songs">
@@ -18,15 +18,17 @@
       </tr>
     </thead>
     <tbody>
-      @for ($i = 0; $i < 20; $i++)
+      @foreach ($songs as $item)
         <tr>
-          <th scope="row">{{ $i+1 }}</th>
-          <td><?= (empty($songs[$i])) ? 'Gift - HA SUNG WOON' : $songs[$i]->title . ' - ' . $songs[$i]->singer ; ?></td>
-          <td><?= (empty($songs[$i])) ? 'Lovely Runner, Pt. 9 (Original Soundtrack)' : $songs[$i]->album ; ?></td>
+          <th scope="row">{{ $loop->iteration }}</th>
+          <td>
+            <a href="/songs/{{ $item->id }}" class="text-decoration-none text-dark">{{ $item->title }}</a> - {{ $item->singer }}
+          </td>
+          <td>{{ $item->album }}</td>
           <td>1 week ago</td>
-          <td><?= (empty($songs[$i])) ? '4:49' : $songs[$i]->minutes_duration . ':' . sprintf('%02d', $songs[$i]->second_duration); ?></td>
+          <td>{{ $item->minutes_duration }}:{{ sprintf('%02d', $item->second_duration) }}</td>
         </tr>
-      @endfor
+      @endforeach
     </tbody>
   </table>
 @endsection
