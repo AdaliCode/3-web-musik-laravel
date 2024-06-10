@@ -4,7 +4,7 @@ use App\Models\Song;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    $songs = Song::all();
+    $songs = Song::with('singers')->get();
     return view('home', compact('songs'));
 });
 

@@ -23,5 +23,15 @@ class SingerSeeder extends Seeder
             $song->save();
         }
         getSingerData();
+        getSingerData('Vionita');
+        getSingerData('UMJI');
+        getSingerData('ECLIPSE');
+        getSingerData('KyoungSeo');
+        getSingerData('Bilal Indrajaya');
+        getSingerData('MINNIE');
+        getSingerData('JONG HO');
+        getSingerData('Lyodra');
+        getSingerData('유주 (YUJU)');
+        getSingerData('Loco');
     }
 }

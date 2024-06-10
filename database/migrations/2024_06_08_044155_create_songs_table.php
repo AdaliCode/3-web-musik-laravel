@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('songs', function (Blueprint $table) {
             $table->id();
             $table->string('title', 100);
-            $table->string('singer', 100);
             $table->string('album', 100);
             $table->date('release');
             $table->integer('minutes_duration');
