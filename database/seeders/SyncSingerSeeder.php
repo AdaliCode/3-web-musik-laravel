@@ -25,6 +25,6 @@ class SyncSingerSeeder extends Seeder
         for ($i = 3; $i < 10; $i++) {
             syncSinger($i, $i);
         }
-        syncSinger(10, [10, 11]);
+        syncSinger(10, [11, 10]); // [penyanyi utama, penyanyi featuring...]
     }
 }

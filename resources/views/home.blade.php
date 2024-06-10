@@ -22,11 +22,10 @@
         <tr>
           <th scope="row">{{ $loop->iteration }}</th>
           <td>
-            <a href="/songs/{{ $item->id }}" class="text-decoration-none text-dark">
-              {{ $item->title }}</a> - 
+            <a href="/songs/{{ $item->id }}" class="text-decoration-none text-dark">{{ $item->title }}</a> - 
               @foreach ($item->singers as $key => $singer)
-                  {{ $singer->name }}
-                  @if (!$loop->last),@endif
+                <a href="/singers/{{ $singer->id }}" class="text-decoration-none text-dark">{{ $singer->name }}</a>
+                @if (!$loop->last),@endif
               @endforeach
           </td>
           <td>{{ $item->album }}</td>
