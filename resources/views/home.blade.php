@@ -28,7 +28,7 @@
                 @if (!$loop->last),@endif
               @endforeach
           </td>
-          <td>{{ $item->album }}</td>
+          <td>{{ $item->album->name }}</td>
           <td>1 week ago</td>
           <td>{{ $item->minutes_duration }}:{{ sprintf('%02d', $item->second_duration) }}</td>
         </tr>

@@ -1,5 +1,4 @@
 @extends('layout.main')
-{{-- cari penyanyi --}}
 <?php $singers = '' ; ?>
 @foreach ($song->singers as $item)
     <?php $singers .= $item->name; ?>
@@ -12,7 +11,11 @@
     <div class="text-success" id="headerDetail">
         <h6>Lagu</h6>
         <h1 class="text-capitalize lato-700">{{ $song->title }}</h1>
-        <p><a href="/singers/{{ $song->singers[0]->id }}" class="text-decoration-none text-success">{{ $song->singers[0]->name }}</a> - {{ $song->title }} - {{ Carbon\Carbon::create($song->release)->year }} - {{ $song->minutes_duration }}:{{ sprintf('%02d', $song->second_duration) }}</p>
+        <p>
+            <a href="/singers/{{ $song->singers[0]->id }}" class="text-decoration-none text-success">
+                {{ $song->singers[0]->name }}
+            </a> - {{ $song->title }} - {{ Carbon\Carbon::create($song->album->release)->year }} - {{ $song->minutes_duration }}:{{ sprintf('%02d', $song->second_duration) }}
+        </p>
     </div>
     <hr>
     <div id="song" class="mb-5">
@@ -40,7 +43,7 @@
                     <img src="{{ asset('album.jpg') }}" class="card-img-top" alt="...">
                     <div class="card-body">
                     <h5 class="card-title">{{ $song->singer }}</h5>
-                    <p class="card-text">{{ Carbon\Carbon::create($song->release)->year }} - <?= ($i % 2 == 0) ? 'Single' : 'Album' ; ?></p>
+                    <p class="card-text">{{ Carbon\Carbon::create($song->album->release)->year }} - <?= ($i % 2 == 0) ? 'Single' : 'Album' ; ?></p>
                     </div>
                 </div>
             </div>

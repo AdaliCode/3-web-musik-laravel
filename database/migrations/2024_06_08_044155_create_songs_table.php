@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('songs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('album_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->string('title', 100);
-            $table->string('album', 100);
-            $table->date('release');
             $table->integer('minutes_duration');
             $table->integer('second_duration');
             $table->text('description')->nullable();
