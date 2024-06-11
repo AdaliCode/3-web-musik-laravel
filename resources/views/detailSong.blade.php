@@ -43,7 +43,7 @@
                     <img src="{{ asset('album.jpg') }}" class="card-img-top" alt="...">
                     <div class="card-body">
                     <h5 class="card-title">{{ $song->singer }}</h5>
-                    <p class="card-text">{{ Carbon\Carbon::create($song->album->release)->year }} - <?= ($i % 2 == 0) ? 'Single' : 'Album' ; ?></p>
+                    <p class="card-text">{{ Carbon\Carbon::create($song->album->release)->year }} - {{ $song->album->type }}</p>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Album;
 use App\Models\Singer;
 use App\Models\Song;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,11 @@ Route::get('/songs/{id}', function ($songId) {
 Route::get('/singers/{id}', function ($singerID) {
     $singer = Singer::find($singerID);
     return view('detailSinger', compact('singer'));
+});
+
+Route::get('/albums/{id}', function ($albumID) {
+    $album = Album::find($albumID);
+    return view('detailAlbum', compact('album'));
 });
 
 Route::fallback(function () {

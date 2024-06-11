@@ -28,7 +28,9 @@
                 @if (!$loop->last),@endif
               @endforeach
           </td>
-          <td>{{ $item->album->name }}</td>
+          <td>
+            <a href="/albums/{{ $item->album->id }}" class="text-decoration-none text-dark">{{ $item->album->name }}</a>
+          </td>
           <td>1 week ago</td>
           <td>{{ $item->minutes_duration }}:{{ sprintf('%02d', $item->second_duration) }}</td>
         </tr>
