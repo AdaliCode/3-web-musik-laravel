@@ -13,7 +13,7 @@
             @foreach ($singer->songs as $key => $item)
                 <tr>
                     <td scope="row">{{ $key+1 }}</td>
-                    <td scope="row">{{ $item->title }}</td>
+                    <td scope="row"><a href="/songs/{{ $item->id }}" class="text-decoration-none text-dark">{{ $item->title }}</a></td>
                     <td scope="row">1.000.000</td>
                     <td scope="row">{{ $item->minutes_duration }}:{{ sprintf('%02d', $item->second_duration) }}</td>
                 </tr>
@@ -23,7 +23,7 @@
         <p>Lihat Semua</p>
     </div>
     <h3 class="lato-700">Tentang</h3>
-    <div class="row mb-5">
+    <div class="row">
         <div class="card text-bg-dark">
             <div class="card-body">
                 <img src="{{ asset('singer.jpg') }}" class="card-img-top my-3" alt="..." style="width: 15%; border-radius: 25%">
