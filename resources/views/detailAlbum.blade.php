@@ -1,20 +1,12 @@
 @extends('layout.main')
-<?php $singers = '' ; ?>
-{{-- mencari penyanyi --}}
-@foreach ($album->songs as $key => $item)
-    @foreach ($item->singers as $singer)
-        <?php $singers .= $singer->name; ?>
-        @if (!$loop->last)
-            <?php $singers .= ', '; ?>    
-        @endif
-    @endforeach
-@endforeach
-@section('title', "MP326 | $album->name - " . $singers)
+@section('title', "MP326 | $album->name - " . $album->singer->name)
 @section('container')
     <div class="text-success" id="headerDetail">
         <h6>{{ $album->type }}</h6>
         <h1 class="text-capitalize lato-700">{{ $album->name }}</h1>
-        <p>{{ $singers }} - {{ Carbon\Carbon::create($album->release)->year }} - {{ count($album->songs) }} lagu, 2 jam 5 detik
+        <p><a href="/singers/{{ $album->singer->id }}" class="text-decoration-none text-success">
+            {{ $album->singer->name }}
+        </a> - {{ Carbon\Carbon::create($album->release)->year }} - {{ count($album->songs) }} lagu, 2 jam 5 detik
         </p>
     </div>
     <hr>
@@ -49,7 +41,7 @@
     <p>{{ $album->release }} - © 2024 BON FACTORY, Stone Music Entertainment</p>
     <hr>
     <div class="row">
-        <h3 class="lato-700">Lainnya dari HA SUNG WOON</h3>
+        <h3 class="lato-700">Lainnya dari {{ $album->singer->name }}</h3>
         @for ($i = 0; $i < 4; $i++)
             <div class="col-md-3 mb-3">
                 <div class="card">
