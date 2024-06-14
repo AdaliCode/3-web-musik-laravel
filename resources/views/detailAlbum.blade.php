@@ -1,10 +1,20 @@
 @extends('layout.main')
-@section('title', "MP326 | $album->name - HA SUNG WOON")
+<?php $singers = '' ; ?>
+{{-- mencari penyanyi --}}
+@foreach ($album->songs as $key => $item)
+    @foreach ($item->singers as $singer)
+        <?php $singers .= $singer->name; ?>
+        @if (!$loop->last)
+            <?php $singers .= ', '; ?>    
+        @endif
+    @endforeach
+@endforeach
+@section('title', "MP326 | $album->name - " . $singers)
 @section('container')
     <div class="text-success" id="headerDetail">
         <h6>{{ $album->type }}</h6>
         <h1 class="text-capitalize lato-700">{{ $album->name }}</h1>
-        <p>HA SUNG WOON - {{ Carbon\Carbon::create($album->release)->year }} - {{ count($album->songs) }} lagu, 2 jam 5 detik
+        <p>{{ $singers }} - {{ Carbon\Carbon::create($album->release)->year }} - {{ count($album->songs) }} lagu, 2 jam 5 detik
         </p>
     </div>
     <hr>
@@ -21,7 +31,14 @@
                 @foreach ($album->songs as $key => $item)
                     <tr>
                         <td scope="row">{{ $key+1 }}</td>
-                        <td scope="row"><a href="/songs/{{ $item->id }}" class="text-decoration-none text-dark">{{ $item->title }}</a></td>
+                        <td scope="row">
+                            <a href="/songs/{{ $item->id }}" class="text-decoration-none text-dark">{{ $item->title }}</a>
+                            -
+                            @foreach ($item->singers as $key => $singer)
+                                <a href="/singers/{{ $singer->id }}" class="text-decoration-none text-dark">{{ $singer->name }}</a>
+                                @if (!$loop->last),@endif
+                            @endforeach
+                        </td>
                         <td scope="row">{{ $item->minutes_duration }}:{{ sprintf('%02d', $item->second_duration) }}</td>
                     </tr>
                 @endforeach
