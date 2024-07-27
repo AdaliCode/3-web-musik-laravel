@@ -1,15 +1,23 @@
 @extends('layout.main')
 @section('title', "MP326 | $album->name - " . $album->singer->name)
-@section('container')
-    <div class="text-success" id="headerDetail">
-        <h6>{{ $album->type }}</h6>
-        <h1 class="text-capitalize lato-700">{{ $album->name }}</h1>
-        <p><a href="/singers/{{ $album->singer->id }}" class="text-decoration-none text-success">
-            {{ $album->singer->name }}
-        </a> - {{ Carbon\Carbon::create($album->release)->year }} - {{ count($album->songs) }} lagu, 2 jam 5 detik
-        </p>
+@section('content')
+<div style="background-color: rgb(145, 84, 41)" class="p-5">
+    <div class="row g-0 align-items-center text-light">
+        <div class="col-auto me-3">
+            <img src="{{ asset('storage/album.jpg') }}" alt="" width="200">
+        </div>
+        <div class="col" id="headerDetail">
+            <small>{{ $album->type }}</small>
+            <h1 class="text-capitalize fs-1" style="font-weight: 900">{{ $album->name }}</h1>
+            <small>
+                <a href="/singers/{{ $album->singer->id }}" class="text-decoration-none text-light">
+                    {{ $album->singer->name }}
+                </a> - {{ Carbon\Carbon::create($album->release)->year }} - {{ count($album->songs) }} lagu, 2 jam 5 detik
+            </small>
+        </div>
     </div>
-    <hr>
+</div>
+<div class="container py-3">
     <div id="song" class="mb-5">
         <table class="table table-borderless" id="songs">
             <thead>
@@ -54,5 +62,6 @@
             </div>
         @endfor
     </div>
+</div>
 
 @endsection

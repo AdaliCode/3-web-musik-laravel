@@ -7,19 +7,26 @@
     @endif
 @endforeach
 @section('title', "MP326 | $song->title - " . $singers)
-@section('container')
-    <div class="text-success" id="headerDetail">
-        <h6>Lagu</h6>
-        <h1 class="text-capitalize lato-700">{{ $song->title }}</h1>
-        <p>
-            <a href="/singers/{{ $song->singers[0]->id }}" class="text-decoration-none text-success">
-                {{ $song->singers[0]->name }}
-            </a> - <a href="/albums/{{ $song->album->id }}" class="text-decoration-none text-success">
-                {{ $song->album->name }}
-            </a> {{ $song->title }} - {{ Carbon\Carbon::create($song->album->release)->year }} - {{ $song->minutes_duration }}:{{ sprintf('%02d', $song->second_duration) }}
-        </p>
+@section('content')
+<div style="background-color: rgb(145, 84, 41)" class="p-5">
+    <div class="row g-0 align-items-center text-light">
+        <div class="col-auto me-3">
+            <img src="{{ asset('storage/album.jpg') }}" alt="" width="200">
+        </div>
+        <div class="col">
+            <small>Song</small>
+            <h1 class="text-capitalize fs-1" style="font-weight: 900">{{ $song->title }}</h1>
+            <small>
+                <a href="/singers/{{ $song->singers[0]->id }}" class="text-decoration-none text-light">
+                    {{ $song->singers[0]->name }}
+                </a> - <a href="/albums/{{ $song->album->id }}" class="text-decoration-none text-light">
+                    {{ $song->album->name }}
+                </a> - {{ $song->title }} - {{ Carbon\Carbon::create($song->album->release)->year }} - {{ $song->minutes_duration }}:{{ sprintf('%02d', $song->second_duration) }}
+            </small>
+        </div>
     </div>
-    <hr>
+</div>
+<div class="container py-3">
     <div id="song" class="mb-5">
         <h5>Track Populer oleh</h5>
         <h3 class="lato-700">{{ $song->singers[0]->name }}</h3>
@@ -55,5 +62,5 @@
             @endfor
         </div>
     @endforeach
-
+</div>
 @endsection
