@@ -26,7 +26,7 @@
     <div class="row">
         <div class="card text-bg-dark">
             <div class="card-body">
-                <img src="{{ asset('singer.jpg') }}" class="card-img-top my-3" alt="..." style="width: 15%; border-radius: 25%">
+                <img src="{{ asset('storage/singer.jpg') }}" class="card-img-top my-3" alt="..." style="width: 15%; border-radius: 25%">
                 <h5 class="card-title">1.000.000 pendengar bulanan</h5>
                 <p class="card-text">{{ $singer->description }}</p>
             </div>

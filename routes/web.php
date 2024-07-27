@@ -12,17 +12,17 @@ Route::get('/', function () {
 
 Route::get('/songs/{id}', function ($songId) {
     $song = Song::find($songId);
-    return view('detailSong', compact('song'));
+    return view('song', compact('song'));
 });
 
 Route::get('/singers/{id}', function ($singerID) {
     $singer = Singer::find($singerID);
-    return view('detailSinger', compact('singer'));
+    return view('singer', compact('singer'));
 });
 
 Route::get('/albums/{id}', function ($albumID) {
     $album = Album::find($albumID);
-    return view('detailAlbum', compact('album'));
+    return view('album', compact('album'));
 });
 
 Route::fallback(function () {

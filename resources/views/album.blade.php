@@ -45,7 +45,7 @@
         @for ($i = 0; $i < 4; $i++)
             <div class="col-md-3 mb-3">
                 <div class="card">
-                    <img src="{{ asset('album.jpg') }}" class="card-img-top" alt="...">
+                    <img src="{{ asset('storage/album.jpg') }}" class="card-img-top" alt="...">
                     <div class="card-body">
                     <h5 class="card-title">{{ $album->name }}</h5>
                     <p class="card-text">{{ Carbon\Carbon::create($album->release)->year }}</p>
