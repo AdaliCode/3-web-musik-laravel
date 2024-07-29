@@ -33,13 +33,23 @@
         <table class="table table-borderless" id="songs">
           <tbody>
               @for ($i = 0; $i < 5; $i++)
-                  <tr>
-                      <td scope="row">{{ $i+1 }}</td>
-                      <td scope="row"><a href="/songs/{{ $song->id }}" class="text-decoration-none text-success">
-                        {{ $song->title }}
-                    </a></td>
-                      <td scope="row">1.000.000</td>
-                      <td scope="row">{{ $song->minutes_duration }}:{{ sprintf('%02d', $song->second_duration) }}</td>
+                  <tr class="align-middle">
+                    <td scope="row">{{ $i+1 }}</td>
+                    <td>
+                        <div class="row g-0 align-items-center">
+                            <div class="col-auto">
+                                <img src="{{ asset('storage/album.jpg') }}" alt="" width="50">
+                            </div>
+                            <div class="col">
+                                <div class="mx-2">
+                                    <a href="/songs/{{ $song->id }}" class="text-decoration-none text-success">
+                                        {{ $song->title }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>1.000.000</td>
+                    <td>{{ $song->minutes_duration }}:{{ sprintf('%02d', $song->second_duration) }}</td>
                   </tr>
               @endfor
           </tbody>

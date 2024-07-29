@@ -30,20 +30,29 @@
             </thead>
             <tbody>
             @foreach ($songs as $item)
-                <tr>
-                <th scope="row">{{ $loop->iteration }}</th>
-                <td>
-                    <a href="/songs/{{ $item->id }}" class="text-decoration-none text-dark">{{ $item->title }}</a> - 
-                    @foreach ($item->singers as $key => $singer)
-                        <a href="/singers/{{ $singer->id }}" class="text-decoration-none text-dark">{{ $singer->name }}</a>
-                        @if (!$loop->last),@endif
-                    @endforeach
-                </td>
-                <td>
-                    <a href="/albums/{{ $item->album->id }}" class="text-decoration-none text-dark">{{ $item->album->name }}</a>
-                </td>
-                <td>1 week ago</td>
-                <td>{{ $item->minutes_duration }}:{{ sprintf('%02d', $item->second_duration) }}</td>
+                <tr class="align-middle">
+                    <th scope="row">{{ $loop->iteration }}</th>
+                    <td>
+                        <div class="row g-0">
+                            <div class="col-auto">
+                                <img src="{{ asset('storage/album.jpg') }}" alt="" width="50">
+                            </div>
+                            <div class="col">
+                                <div class="mx-2">
+                                    <a href="/songs/{{ $item->id }}" class="text-decoration-none text-dark">{{ $item->title }}</a><br>
+                                    @foreach ($item->singers as $key => $singer)
+                                        <a href="/singers/{{ $singer->id }}" class="text-decoration-none text-dark">{{ $singer->name }}</a>
+                                        @if (!$loop->last),@endif
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <a href="/albums/{{ $item->album->id }}" class="text-decoration-none text-dark">{{ $item->album->name }}</a>
+                    </td>
+                    <td>1 week ago</td>
+                    <td>{{ $item->minutes_duration }}:{{ sprintf('%02d', $item->second_duration) }}</td>
                 </tr>
             @endforeach
             </tbody>

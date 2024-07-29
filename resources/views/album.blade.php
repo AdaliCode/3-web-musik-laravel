@@ -29,17 +29,16 @@
               </thead>
           <tbody>
                 @foreach ($album->songs as $key => $item)
-                    <tr>
+                    <tr class="align-middle">
                         <td scope="row">{{ $key+1 }}</td>
-                        <td scope="row">
-                            <a href="/songs/{{ $item->id }}" class="text-decoration-none text-dark">{{ $item->title }}</a>
-                            -
+                        <td>
+                            <a href="/songs/{{ $item->id }}" class="text-decoration-none text-dark">{{ $item->title }}</a><br>
                             @foreach ($item->singers as $key => $singer)
                                 <a href="/singers/{{ $singer->id }}" class="text-decoration-none text-dark">{{ $singer->name }}</a>
                                 @if (!$loop->last),@endif
                             @endforeach
                         </td>
-                        <td scope="row">{{ $item->minutes_duration }}:{{ sprintf('%02d', $item->second_duration) }}</td>
+                        <td>{{ $item->minutes_duration }}:{{ sprintf('%02d', $item->second_duration) }}</td>
                     </tr>
                 @endforeach
           </tbody>

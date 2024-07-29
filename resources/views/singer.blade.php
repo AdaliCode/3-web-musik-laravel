@@ -13,18 +13,7 @@
 <div class="container py-3">
     <div id="song" class="mb-5">
         <h3 class="lato-700">Populer</h3>
-        <table class="table table-borderless" id="songs">
-          <tbody>
-            @foreach ($singer->songs as $key => $item)
-                <tr>
-                    <td scope="row">{{ $key+1 }}</td>
-                    <td scope="row"><a href="/songs/{{ $item->id }}" class="text-decoration-none text-dark">{{ $item->title }}</a></td>
-                    <td scope="row">1.000.000</td>
-                    <td scope="row">{{ $item->minutes_duration }}:{{ sprintf('%02d', $item->second_duration) }}</td>
-                </tr>
-            @endforeach
-          </tbody>
-        </table>
+        @include('song.populer', ['songs' => $singer->songs])
         <p>Lihat Semua</p>
     </div>
     <h3 class="lato-700">Tentang</h3>
