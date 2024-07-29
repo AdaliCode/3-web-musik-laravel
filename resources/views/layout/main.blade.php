@@ -23,7 +23,7 @@
             @include('partials.sidebar')
         </div>
         <div class="col p-2">
-            <div class="bg-secondary rounded">
+            <div class="rounded" style="background-color: rgb(30, 27, 33)">
                 @yield('content')
             </div>
         </div>

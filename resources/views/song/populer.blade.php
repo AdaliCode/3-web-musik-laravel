@@ -1,4 +1,4 @@
-<table class="table table-borderless" id="songs">
+<table class="text-light w-100">
   <tbody>
     @foreach ($songs as $key => $item)
         <tr class="align-middle">
@@ -6,11 +6,11 @@
             <td>
                 <div class="row g-0 align-items-center">
                     <div class="col-auto">
-                        <img src="{{ asset('storage/album.jpg') }}" alt="" width="50">
+                        <img src="{{ asset('storage/album.jpg') }}" alt="" width="30">
                     </div>
                     <div class="col-auto">
                         <div class="mx-2">
-                            <a href="/songs/{{ $item->id }}" class="text-decoration-none text-dark">{{ $item->title }}</a>
+                            <a href="/songs/{{ $item->id }}" class="text-decoration-none text-light">{{ $item->title }}</a>
                         </div>
                     </div>
                 </div>

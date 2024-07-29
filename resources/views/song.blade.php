@@ -35,23 +35,23 @@
         </div>
     </div>
 </div>
-<div class="container py-3">
+<div class="container py-3 text-light">
     <div id="song" class="mb-5">
         <h5>Track Populer oleh</h5>
         <h3 class="lato-700">{{ $song->singers[0]->name }}</h3>
-        <table class="table table-borderless" id="songs">
+        <table class="text-light w-100" id="songs">
           <tbody>
               @for ($i = 0; $i < 5; $i++)
-                  <tr class="align-middle">
+                  <tr>
                     <td scope="row">{{ $i+1 }}</td>
-                    <td>
+                    <td class="p-1">
                         <div class="row g-0 align-items-center">
                             <div class="col-auto">
-                                <img src="{{ asset('storage/album.jpg') }}" alt="" width="50">
+                                <img src="{{ asset('storage/album.jpg') }}" alt="" width="30" class="rounded">
                             </div>
                             <div class="col">
                                 <div class="mx-2">
-                                    <a href="/songs/{{ $song->id }}" class="text-decoration-none text-success">
+                                    <a href="/songs/{{ $song->id }}" class="text-decoration-none text-light">
                                         {{ $song->title }}</a>
                                 </div>
                             </div>

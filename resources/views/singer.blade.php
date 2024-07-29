@@ -12,7 +12,7 @@
         </div>
     </div>
 </div>
-<div class="container py-3">
+<div class="container py-3 text-light">
     <div id="song" class="mb-5">
         <h3 class="lato-700">Populer</h3>
         @include('song.populer', ['songs' => $singer->songs])

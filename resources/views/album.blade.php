@@ -26,26 +26,28 @@
         </div>
     </div>
 </div>
-<div class="container py-3">
+<div class="container py-3 text-light">
     <div id="song" class="mb-5">
-        <table class="table table-borderless" id="songs">
-            <thead>
+        <table class="text-light w-100">
+            <thead class="border-bottom border-light">
                 <tr class="text-capitalize">
-                  <th scope="col" class="text-success">#</th>
-                  <th scope="col" class="text-success">title</th>
-                  <th scope="col" class="text-success"><i class="bi bi-clock"></i></th>
+                  <th scope="col">#</th>
+                  <th scope="col">title</th>
+                  <th scope="col"><i class="bi bi-clock"></i></th>
                 </tr>
               </thead>
           <tbody>
                 @foreach ($album->songs as $key => $item)
                     <tr class="align-middle">
                         <td scope="row">{{ $key+1 }}</td>
-                        <td>
-                            <a href="/songs/{{ $item->id }}" class="text-decoration-none text-dark">{{ $item->title }}</a><br>
-                            @foreach ($item->singers as $key => $singer)
-                                <a href="/singers/{{ $singer->id }}" class="text-decoration-none text-dark">{{ $singer->name }}</a>
-                                @if (!$loop->last),@endif
-                            @endforeach
+                        <td class="lh-1">
+                            <div class="p-2">
+                                <a href="/songs/{{ $item->id }}" class="text-decoration-none text-light">{{ $item->title }}</a><br>
+                                @foreach ($item->singers as $key => $singer)
+                                    <a href="/singers/{{ $singer->id }}" class="text-decoration-none text-light">{{ $singer->name }}</a>
+                                    @if (!$loop->last),@endif
+                                @endforeach
+                            </div>
                         </td>
                         <td>{{ $item->minutes_duration }}:{{ sprintf('%02d', $item->second_duration) }}</td>
                     </tr>
