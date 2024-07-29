@@ -8,21 +8,30 @@
 @endforeach
 @section('title', "MP326 | $song->title - " . $singers)
 @section('content')
-<div style="background-color: rgb(145, 84, 41)" class="p-5">
-    <div class="row g-0 align-items-center text-light">
-        <div class="col-auto me-3">
-            <img src="{{ asset('storage/album.jpg') }}" alt="" width="200">
-        </div>
-        <div class="col">
-            <small>Song</small>
-            <h1 class="text-capitalize fs-1" style="font-weight: 900">{{ $song->title }}</h1>
-            <small>
-                <a href="/singers/{{ $song->singers[0]->id }}" class="text-decoration-none text-light">
-                    {{ $song->singers[0]->name }}
-                </a> - <a href="/albums/{{ $song->album->id }}" class="text-decoration-none text-light">
-                    {{ $song->album->name }}
-                </a> - {{ $song->title }} - {{ Carbon\Carbon::create($song->album->release)->year }} - {{ $song->minutes_duration }}:{{ sprintf('%02d', $song->second_duration) }}
-            </small>
+<div style="background-image: linear-gradient(white, rgba(168, 79, 31, 0.74));">
+    <div class="container pt-5 pb-3">
+        <div class="row g-0 text-white align-items-end">
+            <div class="col-auto">
+                <img src="{{ asset('storage/album.jpg') }}" alt="" width="200" class="rounded">
+            </div>
+            <div class="col mx-3">
+                <small>Song</small>
+                <h1 class="text-capitalize" style="font-weight: 900;">{{ $song->title }}</h1>
+                <div class="row g-0 align-items-center">
+                    <div class="col-auto">
+                        <img src="{{ asset('storage/singer.jpg') }}" alt="" width="20" class="rounded-pill">
+                    </div>
+                    <div class="col mx-1">
+                        <small>
+                            <a href="/singers/{{ $song->singers[0]->id }}" class="text-decoration-none text-light">
+                                {{ $song->singers[0]->name }}
+                            </a> - <a href="/albums/{{ $song->album->id }}" class="text-decoration-none text-light">
+                                {{ $song->album->name }}
+                            </a> - {{ $song->title }} - {{ Carbon\Carbon::create($song->album->release)->year }} - {{ $song->minutes_duration }}:{{ sprintf('%02d', $song->second_duration) }}
+                        </small>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

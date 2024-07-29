@@ -1,19 +1,28 @@
 @extends('layout.main')
 @section('title', "MP326 | $album->name - " . $album->singer->name)
 @section('content')
-<div style="background-color: rgb(145, 84, 41)" class="p-5">
-    <div class="row g-0 align-items-center text-light">
-        <div class="col-auto me-3">
-            <img src="{{ asset('storage/album.jpg') }}" alt="" width="200">
-        </div>
-        <div class="col" id="headerDetail">
-            <small>{{ $album->type }}</small>
-            <h1 class="text-capitalize fs-1" style="font-weight: 900">{{ $album->name }}</h1>
-            <small>
-                <a href="/singers/{{ $album->singer->id }}" class="text-decoration-none text-light">
-                    {{ $album->singer->name }}
-                </a> - {{ Carbon\Carbon::create($album->release)->year }} - {{ count($album->songs) }} lagu, 2 jam 5 detik
-            </small>
+<div style="background-image: linear-gradient(180deg, white, rgba(168, 79, 31, 0.74));">
+    <div class="container pt-5 pb-3">
+        <div class="row g-0 text-white align-items-end">
+            <div class="col-auto">
+                <img src="{{ asset('storage/album.jpg') }}" alt="" width="200" class="rounded">
+            </div>
+            <div class="col mx-3">
+                <small>{{ $album->type }}</small>
+                <h1 class="text-capitalize" style="font-weight: 900;">{{ $album->name }}</h1>
+                <div class="row g-0 align-items-center">
+                    <div class="col-auto">
+                        <img src="{{ asset('storage/singer.jpg') }}" alt="" width="20" class="rounded-pill">
+                    </div>
+                    <div class="col mx-1">
+                        <small>
+                            <a href="/singers/{{ $album->singer->id }}" class="text-decoration-none text-light">
+                                {{ $album->singer->name }}
+                            </a> - {{ Carbon\Carbon::create($album->release)->year }} - {{ count($album->songs) }} lagu, 2 jam 5 detik
+                        </small>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -1,12 +1,14 @@
 @extends('layout.main')
 @section('title', "MP326 | $singer->name")
 @section('content')
-<div style="background-image:url('/storage/singer.jpg')" class="p-5 align-items-center">
-    <div class="row g-0 text-light">
-        <div class="col">
-            <small>Verified Artist</small>
-            <h1 class="text-capitalize fs-1" style="font-weight: 900">{{ $singer->name }}</h1>
-            <small>3,149,602 monthly listeners</small>
+<div style="background-image:url('/storage/singer.jpg');">
+    <div class="container pb-3" style="padding-top: 5rem">
+        <div class="row g-0 text-white align-items-end">
+            <div class="col">
+                <small><i class="bi bi-patch-check-fill text-primary"></i> Verified Artist</small>
+                <h1 style="font-weight: 900;font-size: 4.5rem">{{ $singer->name }}</h1>
+                <small>3,149,602 monthly listeners</small>
+            </div>
         </div>
     </div>
 </div>
