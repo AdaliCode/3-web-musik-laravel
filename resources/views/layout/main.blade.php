@@ -17,17 +17,30 @@
     </style>
 </head>
 
-<body class="bg-dark">
-    <div class="row g-0">
-        <div class="col-auto">
-            @include('partials.sidebar')
-        </div>
-        <div class="col p-2">
-            <div class="rounded" style="background-color: rgb(30, 27, 33)">
-                @yield('content')
+<body class="bg-dark text-light">
+    <div class="container-fluid">
+        {{-- songInfo --}}
+        <div class="row" style="height: 85vh">
+            {{-- sidebar --}}
+            <div class="col-3 border border-light py-2">
+                @include('partials.sidebar')
+            </div>
+            {{-- songInfoPage --}}
+            <div class="col border border-light py-2">
+                <div class="rounded" style="background-color: rgb(30, 27, 33);height: 100%;overflow-y: scroll">
+                    @yield('content')
+                </div>
             </div>
         </div>
+        {{-- songPlay --}}
+        <div class="row" style="height: 15vh">
+           {{-- <h1 class="text-light">Display Music Play</h1> --}}
+        </div>
     </div>
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

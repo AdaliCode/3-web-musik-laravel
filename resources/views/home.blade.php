@@ -24,43 +24,43 @@
         </div>
     </div>
 </div>
-   <div class="container py-3">
-        <table id="songs" class="text-light w-100">
-            <thead class="border-bottom border-light">
-                <tr class="text-capitalize">
-                    <th scope="col">#</th>
-                    <th scope="col">title</th>
-                    <th scope="col">album</th>
-                    <th scope="col">data added</th>
-                    <th scope="col"><i class="bi bi-clock"></i></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($songs as $item)
-                    <tr>
-                        <th scope="row">{{ $loop->iteration }}</th>
-                        <td class="p-1">
-                            <div class="row g-0 align-items-center">
-                                <div class="col-auto">
-                                    <img src="{{ asset('storage/album.jpg') }}" alt="" width="30" class="rounded">
-                                </div>
-                                <div class="col mx-2 lh-1">
-                                    <a href="/songs/{{ $item->id }}" class="text-decoration-none text-light">{{ Str::limit($item->title, 54, '...')  }}</a><br>
-                                    @foreach ($item->singers as $key => $singer)
-                                        <a href="/singers/{{ $singer->id }}" class="text-decoration-none" style="color: rgb(202, 194, 194)">{{ $singer->name }}</a>
-                                        @if (!$loop->last),@endif
-                                    @endforeach
-                                </div>
+<div class="container my-3" style="height: 100px;">
+    <table id="songs" class="text-light w-100">
+        <thead class="border-bottom border-light">
+            <tr class="text-capitalize">
+                <th scope="col">#</th>
+                <th scope="col">title</th>
+                <th scope="col">album</th>
+                <th scope="col">data added</th>
+                <th scope="col"><i class="bi bi-clock"></i></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($songs as $item)
+                <tr>
+                    <th scope="row">{{ $loop->iteration }}</th>
+                    <td class="p-1">
+                        <div class="row g-0 align-items-center">
+                            <div class="col-auto">
+                                <img src="{{ asset('storage/album.jpg') }}" alt="" width="30" class="rounded">
                             </div>
-                        </td>
-                        <td>
-                            <a href="/albums/{{ $item->album->id }}" class="text-decoration-none text-light">{{ Str::limit($item->album->name, 48, '...')  }}</a>
-                        </td>
-                        <td>1 week ago</td>
-                        <td>{{ $item->minutes_duration }}:{{ sprintf('%02d', $item->second_duration) }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-   </div>
+                            <div class="col mx-2 lh-1">
+                                <a href="/songs/{{ $item->id }}" class="text-decoration-none text-light">{{ Str::limit($item->title, 54, '...')  }}</a><br>
+                                @foreach ($item->singers as $key => $singer)
+                                    <a href="/singers/{{ $singer->id }}" class="text-decoration-none" style="color: rgb(202, 194, 194)">{{ $singer->name }}</a>
+                                    @if (!$loop->last),@endif
+                                @endforeach
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <a href="/albums/{{ $item->album->id }}" class="text-decoration-none text-light">{{ Str::limit($item->album->name, 48, '...')  }}</a>
+                    </td>
+                    <td>1 week ago</td>
+                    <td>{{ $item->minutes_duration }}:{{ sprintf('%02d', $item->second_duration) }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 @endsection

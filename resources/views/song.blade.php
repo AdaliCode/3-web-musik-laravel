@@ -35,7 +35,7 @@
         </div>
     </div>
 </div>
-<div class="container py-3 text-light">
+<div class="container my-3 text-light" style="height: 100px;">
     <div id="song" class="mb-5">
         <h5>Track Populer oleh</h5>
         <h3 class="lato-700">{{ $song->singers[0]->name }}</h3>

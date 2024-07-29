@@ -26,7 +26,7 @@
         </div>
     </div>
 </div>
-<div class="container py-3 text-light">
+<div class="container my-3 text-light" style="height: 100px;">
     <div id="song" class="mb-5">
         <table class="text-light w-100">
             <thead class="border-bottom border-light">
